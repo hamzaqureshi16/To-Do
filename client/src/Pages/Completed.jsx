@@ -8,7 +8,7 @@ const Completed = () => {
 
     const getTasks = async () => {
         try {
-            const { data } = await axios.get("http://127.0.0.1:3000/getcompleted");
+            const { data } = await axios.get(`${import.meta.env.VITE_APP_SERVER_BASE}/getcompleted`);
             console.log(data);
             setTasks(data);
         }

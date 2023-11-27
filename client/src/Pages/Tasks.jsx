@@ -7,7 +7,7 @@ const Tasks = () => {
 
   const getTasks = async () => {
     try {
-      const { data } = await axios.get("http://127.0.0.1:3000/get");
+      const { data } = await axios.get(`${import.meta.env.VITE_APP_SERVER_BASE}/get`);
       console.log(data);
       setTasks(data);
     } catch (error) {
@@ -17,7 +17,7 @@ const Tasks = () => {
 
   const setAsCompleted = async (id) => {
     try {
-      const { data } = await axios.post(`http://127.0.0.1:3000/complete`, {
+      const { data } = await axios.post(`${import.meta.env.VITE_APP_SERVER_BASE}/complete`, {
         id,
       });
       console.log(data);
@@ -33,7 +33,7 @@ const Tasks = () => {
 
   return (
     <>
-      {tasks == [] ? (
+      {tasks != [] ? (
       <Box className="mt-4">
         <div className="d-flex align-items-center justify-content-center flex-wrap">
           {tasks.map((task, index) => (

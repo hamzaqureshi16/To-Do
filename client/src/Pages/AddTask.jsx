@@ -25,7 +25,7 @@ const AddTask = () => {
 
   const add = async () => {
     try {
-      const res = await axios.post(`http://127.0.0.1:3000/add`, data);
+      const res = await axios.post(`${import.meta.env.VITE_APP_SERVER_BASE}/add`, data);
       res.status === 201 && clearData();
     } catch (error) {
       console.log(error);
