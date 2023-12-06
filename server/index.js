@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGO_URL);
     app.listen(3000, () => console.log("Server running on port 3000!"));
 
 
-app.use('/',{req,res}=>res.json("heyy"));
+app.use('/',(req,res)=>res.json("heyy"))
 app.use('/get', TodoRouter);
 app.use('/add', AddRouter);
 app.use('/complete', CompleteRouter);
